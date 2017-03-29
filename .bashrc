@@ -9,3 +9,10 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+
+# for virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+export EDITOR="vim"
+
