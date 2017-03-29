@@ -1,11 +1,14 @@
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
- 
 URxvt.iso14755: False
+URxvt.perl-ext-common:default,clipboard
 
 URXvt.tabbed.reopen-on-close:	yes
-URxvt.keysym.Control-Shift-t:	perl:tabbedex:new_tab
+URxvt.keysym.Shift-Control-t:	perl:tabbedex:new_tab
 URxvt.keysym.Shifft-Right:	perl:tabbedex:next_tab
 URxvt.keysym.Shift-Left:	perl:tabbedex:prev_tab
+URxvt.keysym.Control-Shift-Left: perl:tabbedex:move_tab_left
+URxvt.keysym.Control-Shift-Right: perl:tabbedex:move_tab_right
+URxvt.keysym.Control-Shift-R: perl:tabbedex:rename_tab
 URxvt.tabbed.no-tabbedex-keys:	true
 
 URxvt.tabbed.tabbar-fg: 2
@@ -18,11 +21,11 @@ URxvt.tabbed.tab-bg: 0
 ! Xft settings
 !-------------------------------------------------------------------------------
 
-Xft.dpi:                    96
-Xft.antialias:              false
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
+#Xft.dpi:                    96
+#Xft.antialias:              false
+#Xft.rgba:                   rgb
+#Xft.hinting:                true
+#Xft.hintstyle:              hintslight
 
 !-------------------------------------------------------------------------------
 ! URxvt settings
@@ -34,7 +37,7 @@ Xft.hintstyle:              hintslight
 URxvt.depth:                32
 URxvt.geometry:             90x30
 URxvt.transparent:          true
-URxvt.shading:		    30
+URxvt.shading:		        30
 URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
@@ -45,10 +48,10 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           false
-/* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Monospace:pixelsize=14
-URxvt*boldFont: xft:Monospace:pixelsize=14
-
+#URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
+URxvt.font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+#urxvt*font:             xft:Inconsolata:size=12:antialias=true:hinting=true
+#URxvt.font: monospace
 ! Fix font space
 URxvt*letterSpace: -1
 
@@ -71,13 +74,24 @@ URxvt.pointerBlank:         true
 
 !!Source http://github.com/altercation/solarized
 
-*background: #002b36
-*foreground: #c9c5c9
 !!*fading: 40
+*background: #2e466d
 *fadeColor: #002b36
 *cursorColor: #93a1a1
 *pointerColorBackground: #586e75
 *pointerColorForeground: #93a1a1
+
+URxvt.foreground:       gray75
+URxvt.color3:           DarkGoldenrod
+URxvt.color4:           RoyalBlue
+URxvt.color11:          LightGoldenrod
+URxvt.color12:          LightSteelBlue
+URxvt.color7:           gray75
+URxvt.colorBD:          #ffffff
+URxvt.colorUL:          LightSlateGrey
+URxvt.colorIT:          SteelBlue
+URxvt.cursorColor:      grey90
+URxvt.highlightColor:   grey25
 
 !! black dark/light
 *color0: #073642
@@ -110,5 +124,4 @@ URxvt.pointerBlank:         true
 !! white dark/light
 *color7: #eee8d5
 *color15: #fdf6e3 
-
 *color16: #fdf6e3
