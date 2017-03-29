@@ -1,3 +1,37 @@
+"For Vundle
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"Add plugins here
+
+"let Vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim'
+
+"Vim Surround Plugin
+Plugin 'tpope/vim-surround'
+
+"Syntastic plugin
+Plugin 'vim-syntastic/syntastic'
+
+"NerdTree plugin
+Plugin 'scrooloose/nerdtree'
+
+call vundle#end()
+filetype plugin indent on
+
+"Leader is ,
+let mapleader = ","
+
+"Rest of vimrc
+
+"Rempa ,ne for nerdtree
+nmap <leader>ne :NERDTree<cr>
+
+"Automatically change working directory to current file
+set autochdir
+
 "Remap jk and kj to escape
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -9,6 +43,7 @@ syntax enable 		" enable syntax processing
 
 set tabstop=4 		" number of visual spaces per TAB
 set softtabstop=4 	" number of spaces in tab when editing
+set shiftwidth=4    " indent correspond to one tab
 set expandtab		" tabs are spaces
 
 set number          " show line numbers
@@ -56,3 +91,4 @@ hi Normal guibg=NONE ctermbg=NONE
 hi cursorline guibg=NONE ctermbg=NONE
 hi number guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
+
