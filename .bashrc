@@ -14,5 +14,14 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
+# set default editor
 export EDITOR="vim"
 
+# Colorize the ls output
+alias ls='ls --color=auto'
+
+# Colorize diff output
+alias diff='diff --color=auto'
+
+# Colorize grep output
+alias grep='grep --color=auto'
