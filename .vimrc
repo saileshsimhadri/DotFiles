@@ -18,6 +18,18 @@ Plugin 'vim-syntastic/syntastic'
 "NerdTree plugin
 Plugin 'scrooloose/nerdtree'
 
+"Config file highlighting
+Plugin 'PotatoesMaster/i3-vim-syntax'
+
+"Fugitive plugin
+Plugin 'tpope/vim-fugitive'
+
+"Vim-Airline
+Plugin 'bling/vim-airline'
+
+"Codi
+Plugin 'metakirby5/codi.vim'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -26,8 +38,11 @@ let mapleader = ","
 
 "Rest of vimrc
 
-"Rempa ,ne for nerdtree
+"Remap ,ne for nerdtree
 nmap <leader>ne :NERDTree<cr>
+
+"Remap ,e for syntastic
+nmap <leader>e :Error<cr>
 
 "Automatically change working directory to current file
 set autochdir
@@ -86,9 +101,40 @@ autocmd BufWinLeave * call clearmatches()
 
 set t_Co=256
 
-hi NonText guibg=NONE ctermbg=NONE 
+hi NonText guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 hi cursorline guibg=NONE ctermbg=NONE
 hi number guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
 
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+
+    " unicode symbols
+    let g:airline_left_sep = '»'
+    let g:airline_left_sep = '▶'
+    let g:airline_right_sep = '«'
+    let g:airline_right_sep = '◀'
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_symbols.linenr = '␤'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.paste = 'Þ'
+    let g:airline_symbols.paste = '∥'
+    let g:airline_symbols.whitespace = 'Ξ'
+
+    " airline symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = ''
+
+set laststatus=2
