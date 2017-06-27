@@ -52,12 +52,20 @@ volume() {
 
 format() {
   perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
-  perl_filter+='{CORE::say $4 eq "off" ? " MUTE" : " '
+  perl_filter+='{CORE::say $4 eq "off" ? " MUTE\n " : " '
   # If dB was selected, print that instead
   perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
-  perl_filter+='"; exit}'
+  perl_filter+='\n"; exit}'
+  perl -ne "$perl_filter"
+
+}
+
+color(){
+  perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
+  perl_filter+='{print $4 eq "off" ? "#50c878\n" : "#ff0000\n"; exit}'
   perl -ne "$perl_filter"
 }
+
 
 #------------------------------------------------------------------------
 
@@ -66,5 +74,5 @@ case $BLOCK_BUTTON in
   4) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}+ unmute ;; # scroll up, increase
   5) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
 esac
-
 volume | format
+volume | color

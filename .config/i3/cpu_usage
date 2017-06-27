@@ -49,11 +49,16 @@ printf "%.${decimals}f%%\n", $cpu_usage;
 printf "%.${decimals}f%%\n", $cpu_usage;
 
 # Print color, if needed
-if ($cpu_usage >= $t_crit) {
-    print "#FF0000\n";
+#if ($cpu_usage >= $t_crit) {
+if ($cpu_usage >= 80) {
+    print '#FF0000\n';
     exit 33;
-} elsif ($cpu_usage >= $t_warn) {
-    print "#FFFC00\n";
+} #elsif ($cpu_usage >= $t_warn) {
+  elsif ($cpu_usage >= 50) {
+    print '#FFFF00\n';
+}
+else {
+    print '#50c878\n';
 }
 
 exit 0;
